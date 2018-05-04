@@ -8,6 +8,8 @@ services:
       - "${SONARR_PATH_TO_CONFIG}:/config"
       - "${SONARR_PATH_TO_TV_SERIES}:/tv"
       - "${SONARR_PATH_TO_DOWNLOADS}:/downloads"
+    links:
+      - deluge
     environment:
       - TZ
       - PGID
@@ -21,6 +23,8 @@ services:
       - "${MEDUSA_PATH_TO_CONFIG}:/config"
       - "${MEDUSA_PATH_TO_TV_SERIES}:/tv"
       - "${MEDUSA_PATH_TO_DOWNLOADS}:/downloads"
+    links:
+      - deluge
     environment:
       - TZ
       - PGID
@@ -47,6 +51,7 @@ services:
       - PGID
       - TZ
       - NAME_SERVERS
+      - DEBUG
       - LAN_NETWORK
       - ENABLE_PRIVOXY=no
       - STRICT_PORT_FORWARD=yes
