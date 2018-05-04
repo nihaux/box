@@ -56,4 +56,14 @@ services:
       - ENABLE_PRIVOXY=no
       - STRICT_PORT_FORWARD=yes
       - UMASK=002
+  
+
+  deluge_proxy: 
+    image: nginx
+    ports:
+      - "8080:80"
+    links:
+      - deluge
+    volumes:     
+      - ./deluge.webuiproxy.nginx.conf:/etc/nginx/conf.d/default.conf
 
