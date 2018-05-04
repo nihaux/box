@@ -1,4 +1,5 @@
 .idea
-config
-downloads
-series
+sonarr
+medusa
+deluge/config/*
+!deluge/config/.gitkeep

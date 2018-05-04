@@ -3,11 +3,24 @@ services:
   sonarr:
     image: linuxserver/sonarr
     ports:
-      - "${SONAR_PORT}:8989"
+      - "${SONARR_PORT}:8989"
     volumes:
-      - "${SONAR_PATH_TO_CONFIG}:/config"
-      - "${SONAR_PATH_TO_TV_SERIES}:/tv"
-      - "${SONAR_PATH_TO_DOWNLOADS}:/downloads"
+      - "${SONARR_PATH_TO_CONFIG}:/config"
+      - "${SONARR_PATH_TO_TV_SERIES}:/tv"
+      - "${SONARR_PATH_TO_DOWNLOADS}:/downloads"
+    environment:
+      - TZ
+      - PGID
+      - PUID
+
+  medusa:
+    image: linuxserver/medusa
+    ports:
+      - "${MEDUSA_PORT}:8081"
+    volumes:
+      - "${MEDUSA_PATH_TO_CONFIG}:/config"
+      - "${MEDUSA_PATH_TO_TV_SERIES}:/tv"
+      - "${MEDUSA_PATH_TO_DOWNLOADS}:/downloads"
     environment:
       - TZ
       - PGID
@@ -15,4 +28,27 @@ services:
 
   deluge:
     image: binhex/arch-delugevpn
+    ports:
+      - "8112:8112"
+      - "8118:8118"
+      - "58846:58846"
+      - "58946:58946"
+    cap_add:
+      - NET_ADMIN
+    volumes:
+      - "${DELUGE_PATH_TO_CONFIG}:/config"
+      - "${DELUGE_PATH_TO_DOWNLOADS}:/data"
+      - "/etc/localtime:/etc/localtime:ro"
+    environment:
+      - VPN_ENABLED
+      - VPN_USER
+      - VPN_PASS
+      - VPN_PROV
+      - PUID
+      - PGID
+      - NAME_SERVERS
+      - LAN_NETWORK
+      - ENABLE_PRIVOXY=no
+      - STRICT_PORT_FORWARD=yes
+      - UMASK=002
 
