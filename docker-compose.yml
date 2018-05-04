@@ -9,7 +9,10 @@ services:
       - "${SONAR_PATH_TO_TV_SERIES}:/tv"
       - "${SONAR_PATH_TO_DOWNLOADS}:/downloads"
     environment:
-      - TZ=${TZ}
-      - PGID=${PGID}
-      - PUID=${PUID}
+      - TZ
+      - PGID
+      - PUID
+
+  deluge:
+    image: binhex/arch-delugevpn
 
