@@ -1,0 +1,15 @@
+version: "3"
+services:
+  sonarr:
+    image: linuxserver/sonarr
+    ports:
+      - "${SONAR_PORT}:8989"
+    volumes:
+      - "${SONAR_PATH_TO_CONFIG}:/config"
+      - "${SONAR_PATH_TO_TV_SERIES}:/tv"
+      - "${SONAR_PATH_TO_DOWNLOADS}:/downloads"
+    environment:
+      - TZ=${TZ}
+      - PGID=${PGID}
+      - PUID=${PUID}
+
