@@ -6,3 +6,5 @@ deluge/config/*
 deluge/config/openvpn/*
 !deluge/config/openvpn/.gitkeep
 !deluge/config/.gitkeep
+downloads/*
+!downloads/.gitkeep
