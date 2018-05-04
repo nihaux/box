@@ -2,4 +2,7 @@
 sonarr
 medusa
 deluge/config/*
+!deluge/config/openvpn
+deluge/config/openvpn/*
+!deluge/config/openvpn/.gitkeep
 !deluge/config/.gitkeep
