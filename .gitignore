@@ -1,6 +1,12 @@
 .idea
 sonarr
-medusa
+medusa/*
+!medusa/config
+medusa/config/*
+!medusa/config/.gitkeep
+!medusa/series
+medusa/series/*
+!medusa/series/.gitkeep
 deluge/config/*
 !deluge/config/openvpn
 deluge/config/openvpn/*
