@@ -10,3 +10,6 @@ downloads/*
 !downloads/.gitkeep
 emby/*
 !emby/.gitkeep
+!emby/config
+emby/config/*
+!emby/config/.gitkeep
