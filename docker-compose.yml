@@ -73,8 +73,6 @@ services:
       - GID=${PGID}
       - GIDLIST=44
 
-  
-
   deluge_proxy: 
     image: nginx
     ports:
@@ -93,4 +91,14 @@ services:
     environment:
       - PGID
       - PUID
+
+  portainer:
+    image: portainer/portainer
+    command: -H unix:///var/run/docker.sock
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+
+volumes:
+  portainer_data:
 
