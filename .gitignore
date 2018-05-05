@@ -8,3 +8,5 @@ deluge/config/openvpn/*
 !deluge/config/.gitkeep
 downloads/*
 !downloads/.gitkeep
+emby/*
+!emby/.gitkeep

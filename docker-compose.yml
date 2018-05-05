@@ -56,6 +56,21 @@ services:
       - ENABLE_PRIVOXY=no
       - STRICT_PORT_FORWARD=yes
       - UMASK=002
+
+  emby:
+    image: emby/embyserver:latest
+    volumes:
+      - "${EMBY_PATH_TO_CONFIG}:/config"
+      - "${MEDUSA_PATH_TO_TV_SERIES}:/mnt/share1"
+    devices:
+      - "/dev/dri/renderD128:/dev/dri/renderD128"
+    ports:
+      - "8096:8096"
+    environment:
+      - UID=${PUID}
+      - GID=${PGID}
+      - GIDLIST=44
+
   
 
   deluge_proxy: 
