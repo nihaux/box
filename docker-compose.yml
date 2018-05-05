@@ -41,7 +41,9 @@ services:
       - NET_ADMIN
     volumes:
       - "${DELUGE_PATH_TO_CONFIG}:/config"
-      - "${DELUGE_PATH_TO_DOWNLOADS}:/data"
+      - "${MEDUSA_PATH_TO_TV_SERIES}:/tv"
+      - "${MEDUSA_PATH_TO_DOWNLOADS}:/downloads"
+      - "${MEDUSA_PATH_TO_DOWNLOADS}:/data"
     environment:
       - VPN_ENABLED
       - VPN_USER
@@ -81,4 +83,14 @@ services:
       - deluge
     volumes:     
       - ./deluge.webuiproxy.nginx.conf:/etc/nginx/conf.d/default.conf
+
+  organizr:
+    image: lsiocommunity/organizr
+    volumes:
+      - "${ORGANIZR_PATH_TO_CONFIG}:/config"
+    ports:
+      - "80:80"
+    environment:
+      - PGID
+      - PUID
 

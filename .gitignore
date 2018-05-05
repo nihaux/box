@@ -19,3 +19,4 @@ emby/*
 !emby/config
 emby/config/*
 !emby/config/.gitkeep
+organizr
